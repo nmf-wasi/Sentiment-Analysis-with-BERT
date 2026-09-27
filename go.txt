@@ -1,0 +1,25 @@
+1. Token length analysis
+          ↓
+2. Choose max_length
+          ↓
+3. Tokenize clean_text
+          ↓
+4. Train/validation split
+          ↓
+5. Convert to HF Dataset
+          ↓
+6. Load BertForSequenceClassification
+          ↓
+7. Configure TrainingArguments
+          ↓
+8. Train with Trainer
+          ↓
+9. Evaluate validation metrics
+          ↓
+10. Load best checkpoint
+          ↓
+11. Evaluate on test set
+          ↓
+12. Save final model
+          ↓
+13. Inference
