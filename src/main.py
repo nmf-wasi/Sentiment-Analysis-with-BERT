@@ -2,7 +2,7 @@ import os
 import asyncio
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, status
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from transformers import pipeline
 from contextlib import asynccontextmanager
 
@@ -37,7 +37,9 @@ app = FastAPI(lifespan=lifespan)
 
 
 class TextIn(BaseModel):
-    text: str
+    text: str = Field(
+        min_length=1,
+    )
 
 
 @app.post("/predict")
@@ -58,7 +60,7 @@ def predict(payload: TextIn):
 @app.get("/health")
 def health():
     if state["status"] == "ready":
-        return {"status": status.HTTP_200_OK}
+        return {"status": "ok"}
     raise HTTPException(
         status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
         detail={"status": state["status"], "error": state["error"]},
