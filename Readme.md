@@ -1,6 +1,6 @@
 # Emotion Classification API (DistilBERT + FastAPI)
 
-A small REST API that serves a Hugging Face DistilBERT emotion classifier. I built it to learn how to take an ML model from a notebook to a tested, containerized service that can be deployed.
+A small REST API that serves a Hugging Face DistilBERT emotion classifier. 
 
 > **Note:** the model is a pretrained community model (`nmfairuz/distilbert-emotion-classifier`). The goal of this project was the serving, testing and deployment work, not model quality.
 
